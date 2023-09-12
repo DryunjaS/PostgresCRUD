@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Валидация даты в таблице HTML</title>
+  <script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+      var dateInputs = document.querySelectorAll('table tr td:nth-child(3) input[type="date"]');
+      
+      dateInputs.forEach(function(input) {
+        input.addEventListener('change', function() {
+          if (!isValidDate(this.value)) {
+            this.classList.add('invalid');
+          } else {
+            this.classList.remove('invalid');
+          }
+        });
+      });
+      
+      function isValidDate(dateString) {
+        var pattern = /^\d{4}-\d{2}-\d{2}$/;
+        if (!pattern.test(dateString)) return false;
+
+        var date = new Date(dateString);
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+
+        if (year < 1000  || year > 3000 || month == 0 || month > 12) return false;
+        if (day < 1 || day > 31) return false;
+
+        return true;
+      }
+    });
+  </script>
+  <style>
+    .invalid {
+      border: 2px solid red;
+    }
+  </style>
+</head>
+<body>
+  <table>
+    <tr>
+      <td>Значение 1</td>
+      <td>Значение 2</td>
+      <td><input type="date"></td>
+    </tr>
+    <tr>
+      <td>Значение 3</td>
+      <td>Значение 4</td>
+      <td><input type="date"></td>
+    </tr>
+    <tr>
+      <td>Значение 5</td>
+      <td>Значение 6</td>
+      <td><input type="date"></td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,327 @@
+/* ---------Оформление----------------------------------------------------   */
+/* body {
+  background: #FFF;
+  color: #212129;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+} */
+
+.invalid { 
+  color: red; 
+}
+#error { color: red }
+
+html {
+  font-family: "Open Sans", sans-serif;
+  height: 100vh;
+  color: #212129;
+  font-size: 14px;
+  background: url("./img/HgflTDf.jpg") 50% fixed;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+body{
+  margin: 0;
+  padding: 0;
+}
+.wap_1{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* -----------Поиск------------------------------------------------- */
+.search_max{
+  width: 90%;
+  margin: 0 auto;
+}
+.search{
+  display: flex;
+  justify-content: center;
+  margin: 5px;
+}
+
+#filterSelect,#filterSelect_1,#filterSelect_2,#filterSelect_3,#filterSelect_4,#filterSelect_5,#filterSelect_6,#filterSelect_7,#filterSelect_8,#filterSelect_9 {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  margin-right: 16px;
+}
+
+#myInput_0,#myInput_1,#myInput_2,#myInput_3,#myInput_4,#myInput_5,#myInput_6,#myInput_7,#myInput_8,#myInput_9 {
+  padding: 8px;
+  font-size: 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f1f1f1;
+  margin-right: 16px;
+  width: 45%;
+}
+/* ------------------------------------------------------------ */
+
+#myTable {
+  margin: 10px auto 10px ;
+  border-collapse: collapse;
+  background-color: #FFF;
+}
+
+#myTable th,
+#myTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+#myTable th {
+  background-color: #89d6ff;
+  cursor: pointer;
+  position: relative;
+}
+#myTable tr{
+  transition: 0.3s all;
+}
+
+#myTable tr:hover,
+#myTable tr:hover td select, #myTable tr:hover td input[type='date'],#myTable tr:hover td input[type='number'],#myTable tr:hover td input[type='text']{
+  background-color: #e9e5e5;
+}
+
+
+#myTable th .sortIcon {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#myTable th .sortIcon:before {
+  content: "";
+  display: inline-block;
+  font-size: 10px;
+}
+
+#myTable th.asc .sortIcon:before {
+  content: "\25b2";
+}
+
+#myTable th.desc .sortIcon:before {
+  content: "\25bc";
+}
+
+.deleteRowBtn,.remove-item {
+  background-color: #f44336;
+  border: none;
+  color: white;
+  padding: 8px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.6s all;
+}
+.deleteRowBtn:hover,.remove-item:hover{
+  scale: 1.05;
+} 
+.hidden {
+  display: none;
+}
+
+option[style*="display: none"] {
+  display: none !important;
+}
+
+form {
+  position: relative;
+  width: 500px;
+  margin: 0 auto;
+}
+
+
+/* -------Heder------- */
+@font-face {
+  font-family: Playfair Display SC; 
+  src: url(./font/PlayfairDisplaySC-Regular.ttf); 
+ }
+ @font-face {
+  font-family: Playfair Display SC; /* Гарнитура шрифта */
+  src: url(./font/PlayfairDisplaySC-Regular.ttf); /* Путь к файлу со шрифтом */
+ }
+
+ 
+header, nav {
+  color: #fff; 
+  padding: 0 10px;
+  font-family: 'Playfair Display SC', serif;
+  font-size: 18px;
+  z-index: 33; 
+ }
+
+ header {
+  color: #000;
+  text-align:start;
+ }
+ header p{
+  margin: 30px 0;
+  font-size: 22px;
+ }
+ nav {
+  background: #006666; 
+  position: sticky; 
+  top: 0; 
+  margin: 0;
+  opacity: 0.99;
+ }
+
+.wap_btn{
+  display: flex;
+  justify-content: space-between;
+}
+.left_btn{
+  display: flex;
+}
+.img_btn{
+  width: 48px;
+  height: 48;
+  margin: 5px 10px;
+  cursor: pointer;
+  transition: 0.5s all;
+}
+
+.img_btn:hover{
+scale: 1.2;
+}
+
+/* --------Подсказка------------- */
+
+.test_rem::after,#addRowBtn::after,#writRowBtn::after,#selectRowBtn::after {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px 8px 8px 0px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  content: attr(data-tooltip); 
+  opacity: 0; 
+  padding: 4px 7px;
+  position: absolute;
+  visibility: hidden; 
+}
+.test_add {
+  position: relative;
+}
+.test_add::after{
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 8px 8px 0px 8px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  content: attr(data-tooltip);
+  opacity: 0;
+  padding: 4px 7px;
+  position: absolute;
+  visibility: hidden;
+  left: -100%; /* Изменено */
+  top: calc(50% - 80px); /* Изменено */
+  transform: translate(-70px, 0); /* Изменено */
+}  
+.test_rem:hover::after,.test_add:hover::after,#addRowBtn:hover::after,#writRowBtn:hover::after,#selectRowBtn:hover::after {
+  opacity: 1; 
+  visibility: visible;
+  z-index: 11;
+}
+
+/* -------------Выпадающие списки в строках-------------------------------- */
+td select{
+  border:0px;
+  font-size: 14px;
+  background-color: #fff;
+  transition: 0.3s all;
+}
+.deleteRowCheckbox{
+  width: 20px;
+  height: 20px;
+  margin: 0px auto;
+}
+td input{
+  border:0px;
+  font-size: 14px;
+  background-color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  transition: 0.3s all;
+}
+td input[type='number']{
+  width: 60px;
+}
+/* For Chrome */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: '';
+  appearance: '';
+  margin: 0;
+  opacity: 1;
+}
+td:nth-child(10) {
+  width: 60px;
+}
+
+/* ---------Диалоговое окно-------------------------- */
+body.modal-open {
+  overflow: hidden;
+}
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 100;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 300px;
+  text-align: center;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  margin: 0 5px;
+  padding: 10px 20px;
+}
+#img_mess,#img_email{
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+}
+
+

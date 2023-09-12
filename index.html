@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<link rel="stylesheet" href="./style.css">
+  <script>window.$ = window.jQuery = require('./jquery-3.6.4.min.js');</script>
+<script src="./jquery.maskedinput.min.js"></script>
+<title>Программа для работы с базой данных</title>
+</head>
+<body>
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img src="./img/delete.png" alt="Confirmation Image" id="img_mess">
+    <img src="./img/img_email.ico" alt="Confirmation Image" id="img_email">
+
+    <p id="confirmationText"></p>
+    <div class="buttons">
+      <button id="okButton">OK</button>
+      <button id="okButton_2">OK</button>
+      <button id="cancelButton">Отмена</button>
+      <button id="cancelButton_2">Отмена</button>
+    </div>
+  </div>
+</div>
+
+  
+  <div class="wap_1">
+    <!-- ---------Header неподвижный---------------------- -->
+    <header>
+      <p>Таблица сотрудников магазина</p>
+    </header>
+
+    <nav>
+      <p>Управление таблицей</p>
+      <div class="wap_btn">
+        <div class="left_btn">
+          <div class="btn_add">
+            <div id="addRowBtn" data-tooltip="Добавить строку"><img src="./img/add.png" alt="" class="img_btn"></div>
+          </div>
+          <div class="test_rem " data-tooltip="Удалить строку" ><img src="./img/delete.png" alt="" class="img_btn"></div>
+          <div class="btn_add">
+            <div id="writRowBtn" data-tooltip="Записать в exсel"><img src="./img/new_write.png" alt="" class="img_btn"></div>
+          </div>
+        </div>
+
+        <div class="right_btn">
+          <div class="test_add " data-tooltip="Добавить критерий поиска"><img src="./img/krit.png" alt="" class="img_btn"></div>
+        </div>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_0" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(0)" id="s0">Скрыть</button>
+      </div> 
+
+      <div class="search hidden">
+        <select id="filterSelect_1">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_1" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(1)" id="s1">Скрыть</button>
+      </div>
+      <div class="search hidden">
+        <select id="filterSelect_2">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_2" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(2)" id="s2">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_3">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_3" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(3)" id="s3">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_4">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_4" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(4)" id="s4">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_5">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_5" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(5)" id="s5">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_6">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_6" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(6)" id="s6">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_7">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_7" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(7)" id="s7">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_8">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_8" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(8)" id="s8">Скрыть</button>
+      </div>
+
+      <div class="search hidden">
+        <select id="filterSelect_9">
+          <option value="10" selected>Выберете критерий</option>
+          <option value="0">ФИО</option>
+          <option value="1">Должность</option>
+          <option value="2">Отдел</option>
+          <option value="3">Год рождения</option>
+          <option value="4">Возраст (лет)</option>
+          <option value="5">Стаж</option>
+          <option value="6">Номер телефона</option>
+          <option value="7">E-mail</option>
+          <option value="8">Образование</option>
+          <option value="9">Оклад</option>
+        </select>
+        <input type="text" id="myInput_9" onkeyup="myFunction()" placeholder="Поиск...">
+        <button class="remove-item" onclick="remove_item(9)" id="s9">Скрыть</button>
+      </div>  
+    </nav> 
+    <!-- -------------------------------------------------------- -->
+    
+    <table id="myTable">
+      <tr>
+              <th>ФИО</th>
+              <th>Должность</th>
+              <th>Отдел</th>
+              <th>Дата рождения</th>
+              <th>Возраст (лет)</th>
+              <th>Стаж</th>
+              <th>Номер телефона</th>
+              <th>E-mail</th>
+              <th>Образование</th>
+              <th>Оклад (тыс.руб.)</th>
+              <th></th>
+      </tr>
+    </table>
+  </div>
+
+  
+<script src="./logic.js"></script> 
+</body>
+</html>

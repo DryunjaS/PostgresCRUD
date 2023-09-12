@@ -1,0 +1,50 @@
+{
+  "name": "basedata",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron .",
+    "dist": "electron-builder --ia32"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^18.1.0",
+    "electron-builder": "^23.6.0"
+  },
+  "build": {
+    "appId": "db_PostgreSQL.app",
+    "productName": "db_PostgreSQL",
+    "electronVersion": "21.1.0",
+    "target": "nsis",
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "icon_db.ico"
+    },
+    "nsis": {
+      "allowToChangeInstallationDirectory": true,
+      "oneClick": false,
+      "perMachine": true,
+      "installerIcon": "icon_db.ico",
+      "uninstallerIcon": "icon_db.ico",
+      "uninstallDisplayName": "db_PostgreSQL",
+      "deleteAppDataOnUninstall": true
+    },
+    "directories": {
+      "output": "build",
+      "buildResources": "build"
+    }
+  },
+  "dependencies": {
+    "electron-dialogs": "^1.4.0",
+    "electron-prompt": "^1.7.0",
+    "pg": "^8.10.0",
+    "xlsx": "^0.18.5",
+    "xlsx-populate": "^1.21.0"
+  }
+}
